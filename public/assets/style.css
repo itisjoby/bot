@@ -1,0 +1,31 @@
+.light_grey{
+                background-color: #d1cccc;
+            }
+            .dark_grey{
+                background-color: grey;
+            }
+            .grey_color{
+                color:grey;
+            }
+            .button_wrapper{
+                padding: 10px;
+                text-align: center;
+            }
+            .selected_grey{
+                background-color: #e9e3e3;
+            }
+            .true_case {
+                background: lightblue;
+                border-radius: 50%;
+                width: 30px;
+                height: 30px;
+                z-index: 1000;
+                position:relative;
+            }
+            span.button_span{
+                display: inline-block;
+    padding: 10px;
+    border: 2px solid;
+    background: cornflowerblue;
+    color: aliceblue;
+            }
