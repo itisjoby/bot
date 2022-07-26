@@ -18,42 +18,7 @@
 
         <script src="<?php echo base_url('assets/Boteditor.js'); ?>"></script>
         <script src="<?php echo base_url('assets/app.js'); ?>"></script>
-        <div id="block block1">
-
-            
-
-
-            <div class="button_block" style="display:none">
-                <label>Label</label>
-                <input type="text" value="" place holder="label" name="btn_label">
-                <label>Redirect Url</label>
-                <input type="text" value="" place holder="with http://" name="btn_redirect_url">
-                <label>variable name</label>
-                <input type="text" value="" place holder="variable name" name="btn_variable">
-                <label>colour</label>
-                <input type="text" value="" place holder="colour" name="btn_colour">
-                <label>bg colour</label>
-                <input type="text" value="" place holder="bgcolour" name="btn_bgcolour">
-                <label>advanced css</label>
-                <textarea name="btn_css"></textarea>
-            </div>
-            <div class="question_block" style="display:none">
-                <label>question</label>
-                <input type="text" value="" place holder="label" name="question">
-                <label>Regex pattern for validation</label>
-                <input type="text" value="" place holder="with http://" name="redirect_url">
-                <label>variable name</label>
-                <input type="text" value="" place holder="variable name" name="variable">
-                <label>validation error message</label>
-                <input type="text" value="" place holder="colour" name="colour">
-                <label>answer type</label>
-                <select>
-                    <option value="text">simple text answers</option>
-                    <option value="multiple choices">multiple choices</option>
-                    <option value="single choice">single choice from list</option>
-                </select>
-            </div>
-        </div>
+        
         <div class="logic_block" style="display:none">
             <label>if</label>
             <select>
