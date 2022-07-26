@@ -9,13 +9,16 @@
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <link href="<?php echo base_url('assets/style.css'); ?>" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <!-- <script src="https://cdn.ckeditor.com/ckeditor5/34.2.0/classic/ckeditor.js"></script> -->
+        <script src="<?php echo base_url('assets/ckeditor_mention.js'); ?>"></script>
+
+
     </head>
     <body>
         <div class="bot_container">
             <div class="demo_area" style="display:inline-block;width:50%"></div>
             <div class="configure_area" style="display:inline-block"></div>
         </div>
-
         <script src="<?php echo base_url('assets/Boteditor.js'); ?>"></script>
         <script src="<?php echo base_url('assets/app.js'); ?>"></script>
         

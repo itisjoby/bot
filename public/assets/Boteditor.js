@@ -19,6 +19,7 @@ class BotEditor {
     this.root_element=$('.demo_area');
     this.currently_editing=false;
     this.currently_editing_data=false;
+    this.variables=[];
     this.latest_id=data.length+1;
   }
 
@@ -57,9 +58,31 @@ class BotEditor {
             <button type="button" id="apply_change_${this.currently_editing_data.id}" >Apply</button>
         </div>`;
         $(".configure_area").html(edit_html);
+
+
+        let myeditor=false;
+        console.log(this.variables)
+        ClassicEditor
+            .create( document.querySelector( `#edit_block_${this.currently_editing_data.id} #message_input`),{
+                mention: {
+                    feeds: [
+                        {
+                            marker: '@',
+                            feed: this.variables.map(i => '@' + i),
+                            minimumCharacters: 1
+                        }
+                    ]
+                }
+            } ).then(function(editor){
+                myeditor=editor;
+            })
+            .catch( error => {
+                console.error( error );
+            } );
         let self=this;
         $(`button#apply_change_${this.currently_editing_data.id}`).on('click',function(){
-            let new_content=$(`#edit_block_${self.currently_editing_data.id} #message_input`).val();
+            //let new_content=$(`#edit_block_${self.currently_editing_data.id} #message_input`).val();
+            let new_content=myeditor.getData();
             for(let obj of self.data){
                 if(obj.id==self.currently_editing_data.id){
                     self.currently_editing=false;
@@ -73,7 +96,7 @@ class BotEditor {
             self.refresh();
         });
     }
-
+   
     _edit_buttons(){
        let edit_html=`<div class="button_block" id="edit_block_${this.currently_editing_data.id}">
        <label>Label</label>
@@ -408,19 +431,23 @@ class BotEditor {
 
     refresh(){
         this.root_element.html('');
+        this.variables=[];
         for(let obj of this.data){
             if(obj.type=='message'){
                 this._add_message(obj);
             }else if(obj.type=='buttons'){
                 this._add_button_group(obj);
+                this.variables.push(obj.variable_name);
             }else if(obj.type=='button'){
                 this._add_button(obj);
             }else if(obj.type=='question'){
                 this._add_question(obj);
+                this.variables.push(obj.variable_name);
             }else if(obj.type=='answer'){
                 this._add_answer(obj);
             }
         }    
+        
         this.root_element.append('<button type="button" id="save_btn">Save</button><button type="button" id="clear_btn">Clear</button>');
         self=this;
         $(document).on('click','#save_btn',function(e){
